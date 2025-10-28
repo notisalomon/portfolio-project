@@ -106,7 +106,7 @@ const Hero = () => {
 
         <h1 className="text-5xl md:text-7xl font-bold mb-6">
           <span className="bg-gradient-to-r from-white via-cyan-200 to-white bg-clip-text text-transparent">
-            Hi, I'm Labi
+            Hallo, ich bin Labi
           </span>
         </h1>
 

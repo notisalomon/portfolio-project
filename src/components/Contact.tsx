@@ -16,7 +16,10 @@ const Contact = () => {
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch('https://formspree.io/f/xkgnazlv', {
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      const apiUrl = `${supabaseUrl}/functions/v1/send-contact-email`;
+
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -25,8 +28,6 @@ const Contact = () => {
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          _replyto: formData.email,
-          _subject: `Neue Nachricht von ${formData.name}`,
         }),
       });
 
