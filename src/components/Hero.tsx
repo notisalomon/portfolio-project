@@ -112,7 +112,7 @@ const Hero = () => {
 
         <div className="mb-8">
           <p className="text-2xl md:text-3xl font-bold text-white mb-2">
-            Ich entwickle für dich:
+            Ich entwickle für Sie:
           </p>
           <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent min-h-[3rem] flex items-center justify-center">
             {displayedText}
