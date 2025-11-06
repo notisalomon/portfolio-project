@@ -68,8 +68,7 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-bold text-white mb-4">Lass uns zusammenarbeiten</h3>
               <p className="text-gray-300 leading-relaxed mb-6">
-                Ich bin immer offen für neue Projekte und Möglichkeiten. Ob Sie eine Frage haben oder einfach
-                nur Hallo sagen möchten, ich werde mein Bestes tun, um Ihnen zu antworten.
+                Ich bin immer offen für neue Projekte und unterstütze auch Vereine bei ihren Webauftritten. Ob Sie eine Frage haben oder Ihre Idee mit mir teilen wollen. Ich antworte am selben Tag auf Ihre Anfrage. 
               </p>
             </div>
 
