@@ -16,10 +16,7 @@ const Contact = () => {
     setSubmitStatus('idle');
 
     try {
-      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-      const apiUrl = `${supabaseUrl}/functions/v1/send-contact-email`;
-
-      const response = await fetch(apiUrl, {
+      const response = await fetch('https://formspree.io/f/xkgnazlv', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -28,12 +25,15 @@ const Contact = () => {
           name: formData.name,
           email: formData.email,
           message: formData.message,
+          _replyto: formData.email,
+          _subject: `Neue Nachricht von ${formData.name}`,
         }),
       });
 
       if (response.ok) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setSubmitStatus('idle'), 5000);
       } else {
         setSubmitStatus('error');
       }
@@ -188,7 +188,7 @@ const Contact = () => {
 
         <div className="mt-20 pt-8 border-t border-cyan-500/20 text-center">
           <p className="text-gray-400">
-            © 2025 Labi. Designed & Built with passion in Zürich.
+            © 2025 Labi. Designed & built with passion in Zürich.
           </p>
         </div>
       </div>
