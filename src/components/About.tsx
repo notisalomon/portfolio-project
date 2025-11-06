@@ -14,12 +14,12 @@ const About = () => {
     },
     {
       icon: <GraduationCap className="text-cyan-400" size={24} />,
-      label: 'Abschluss',
-      value: 'HF Wirtschaftsinformatik (2021)',
+      label: 'Abschluss im 2021',
+      value: 'Wirtschaftsinformatik (HF)',
     },
     {
       icon: <BookOpen className="text-cyan-400" size={24} />,
-      label: 'Studium',
+      label: 'Laufendes Studium',
       value: 'Bachelor Informatik (FH)',
     },
   ];
