@@ -20,7 +20,7 @@ const handler: Handler = async (event) => {
     }
 
     const client = new Client({
-      connectionString: process.env.DATABASE_URL, // Neon-URL
+      connectionString: process.env.NETLIFY_DATABASE_URL, // Neon-URL
       ssl: { rejectUnauthorized: false },        // Neon braucht SSL in vielen Setups
     });
 
