@@ -16,7 +16,7 @@ const Contact = () => {
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch('https://formspree.io/f/xkgnazlv', {
+      const response = await fetch(/*'https://formspree.io/f/xkgnazlv'*/'https://ep-aged-darkness-aeatqz41.apirest.c-2.us-east-2.aws.neon.tech/neondb/rest/v1', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
