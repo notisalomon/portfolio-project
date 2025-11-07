@@ -15,7 +15,7 @@ const Skills = () => {
     {
       icon: <Database className="text-cyan-400" size={32} />,
       title: 'DevOps',
-      skills: ['CI/CD', 'Docker', 'Kubernetes', 'Cloud Infrastructure'],
+      skills: ['CI/CD', 'Docker', 'Kubernetes', 'Cloud Infrastructure', 'Ansible'],
     },
     {
       icon: <Wrench className="text-blue-400" size={32} />,
