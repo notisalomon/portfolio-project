@@ -16,7 +16,7 @@ const Contact = () => {
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch(/*'https://formspree.io/f/xkgnazlv'*/'https://ep-aged-darkness-aeatqz41.apirest.c-2.us-east-2.aws.neon.tech/neondb/rest/v1', {
+      const response = await fetch('https://formspree.io/f/xkgnazlv', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -115,7 +115,7 @@ const Contact = () => {
           </div>
 
           <div className="bg-slate-900/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6" netlify>
               <div>
                 <label htmlFor="name" className="block text-gray-300 font-medium mb-2">
                   Name
