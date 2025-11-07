@@ -1,6 +1,12 @@
 import { Mail, MapPin, Linkedin, Github, Send } from 'lucide-react';
 import { useState } from 'react';
 
+// NEU: Hilfsfunktion fürs URL-Encoding (für Netlify Forms)
+const encode = (data: Record<string, string>) =>
+  Object.keys(data)
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -10,23 +16,23 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch('https://formspree.io/f/xkgnazlv', {
+      // NEU: an deine eigene Seite posten (Netlify fängt das ab)
+      const response = await fetch('/', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify({
+        body: encode({
+          'form-name': 'contact', // wichtig für Netlify
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          _replyto: formData.email,
-          _subject: `Neue Nachricht von ${formData.name}`,
         }),
       });
 
@@ -47,7 +53,7 @@ const Contact = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
-      [e.target.id]: e.target.value,
+      [e.target.name]: e.target.value, // NEU: nach name statt id
     });
   };
 
@@ -68,7 +74,8 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-bold text-white mb-4">Lass uns zusammenarbeiten</h3>
               <p className="text-gray-300 leading-relaxed mb-6">
-                Ich bin immer offen für neue Projekte und unterstütze auch Vereine bei ihren Webauftritten. Ob Sie eine Frage haben oder Ihre Idee mit mir teilen wollen. Ich antworte am selben Tag auf Ihre Anfrage. 
+                Ich bin immer offen für neue Projekte und unterstütze auch Vereine bei ihren Webauftritten.
+                Ob Sie eine Frage haben oder Ihre Idee mit mir teilen wollen. Ich antworte am selben Tag auf Ihre Anfrage.
               </p>
             </div>
 
@@ -115,7 +122,25 @@ const Contact = () => {
           </div>
 
           <div className="bg-slate-900/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-8">
-            <form onSubmit={handleSubmit} className="space-y-6" netlify>
+            {/* NEU: Netlify-Form-Attribute */}
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
+              className="space-y-6"
+            >
+              {/* wichtig für Netlify: form-name */}
+              <input type="hidden" name="form-name" value="contact" />
+
+              {/* Honeypot-Feld (versteckt) */}
+              <p hidden>
+                <label>
+                  Nicht ausfüllen (Spam-Schutz): <input name="bot-field" onChange={() => {}} />
+                </label>
+              </p>
+
               <div>
                 <label htmlFor="name" className="block text-gray-300 font-medium mb-2">
                   Name
@@ -123,6 +148,7 @@ const Contact = () => {
                 <input
                   type="text"
                   id="name"
+                  name="name"                    // NEU: name-Attribut
                   value={formData.name}
                   onChange={handleChange}
                   required
@@ -138,6 +164,7 @@ const Contact = () => {
                 <input
                   type="email"
                   id="email"
+                  name="email"                  // NEU
                   value={formData.email}
                   onChange={handleChange}
                   required
@@ -152,6 +179,7 @@ const Contact = () => {
                 </label>
                 <textarea
                   id="message"
+                  name="message"                // NEU
                   rows={5}
                   value={formData.message}
                   onChange={handleChange}
