@@ -1,12 +1,6 @@
 import { Mail, MapPin, Linkedin, Github, Send } from 'lucide-react';
 import { useState } from 'react';
 
-// NEU: Hilfsfunktion fürs URL-Encoding (für Netlify Forms)
-const encode = (data: Record<string, string>) =>
-  Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&');
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -22,14 +16,13 @@ const Contact = () => {
     setSubmitStatus('idle');
 
     try {
-      // NEU: an deine eigene Seite posten (Netlify fängt das ab)
-      const response = await fetch('/', {
+      // WICHTIG: Auf deine Netlify Function posten
+      const response = await fetch('/.netlify/functions/contact', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/json',
         },
-        body: encode({
-          'form-name': 'contact', // wichtig für Netlify
+        body: JSON.stringify({
           name: formData.name,
           email: formData.email,
           message: formData.message,
@@ -51,10 +44,11 @@ const Contact = () => {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value, // NEU: nach name statt id
-    });
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   return (
@@ -122,25 +116,8 @@ const Contact = () => {
           </div>
 
           <div className="bg-slate-900/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-8">
-            {/* NEU: Netlify-Form-Attribute */}
-            <form
-              name="contact"
-              method="POST"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-              onSubmit={handleSubmit}
-              className="space-y-6"
-            >
-              {/* wichtig für Netlify: form-name */}
-              <input type="hidden" name="form-name" value="contact" />
-
-              {/* Honeypot-Feld (versteckt) */}
-              <p hidden>
-                <label>
-                  Nicht ausfüllen (Spam-Schutz): <input name="bot-field" onChange={() => {}} />
-                </label>
-              </p>
-
+            {/* KEIN Netlify-Form mehr, nur normales React-Form */}
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-gray-300 font-medium mb-2">
                   Name
@@ -148,7 +125,7 @@ const Contact = () => {
                 <input
                   type="text"
                   id="name"
-                  name="name"                    // NEU: name-Attribut
+                  name="name"
                   value={formData.name}
                   onChange={handleChange}
                   required
@@ -164,7 +141,7 @@ const Contact = () => {
                 <input
                   type="email"
                   id="email"
-                  name="email"                  // NEU
+                  name="email"
                   value={formData.email}
                   onChange={handleChange}
                   required
@@ -179,7 +156,7 @@ const Contact = () => {
                 </label>
                 <textarea
                   id="message"
-                  name="message"                // NEU
+                  name="message"
                   rows={5}
                   value={formData.message}
                   onChange={handleChange}
