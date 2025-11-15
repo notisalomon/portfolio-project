@@ -1,4 +1,4 @@
-import { Mail, MapPin, Linkedin, Github, Send } from 'lucide-react';
+import { Mail, MapPin, Linkedin, Github, Send, Youtube } from 'lucide-react';
 import { useState } from 'react';
 
 const Contact = () => {
@@ -111,6 +111,14 @@ const Contact = () => {
                 className="p-4 bg-slate-900/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl hover:border-cyan-500/40 hover:bg-cyan-500/10 transition-all duration-300 group"
               >
                 <Github className="text-cyan-400 group-hover:scale-110 transition-transform" size={24} />
+              </a>
+              <a
+                href="https://www.youtube.com/channel/UCmj6iqnF2lWqJJgWbU7wpkg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-4 bg-slate-900/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl hover:border-cyan-500/40 hover:bg-cyan-500/10 transition-all duration-300 group"
+              >
+                <Youtube className="text-cyan-400 group-hover:scale-110 transition-transform" size={24} />
               </a>
             </div>
           </div>
