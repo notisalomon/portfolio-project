@@ -99,11 +99,6 @@ const Hero = () => {
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-700"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/10 border border-cyan-500/20 rounded-full mb-8 backdrop-blur-sm">
-          <Sparkles size={16} className="text-cyan-400" />
-          <span className="text-cyan-400 text-sm font-medium">DevOps Engineer</span>
-        </div>
-
         <h1 className="text-5xl md:text-7xl font-bold mb-6">
           <span className="bg-gradient-to-r from-white via-cyan-200 to-white bg-clip-text text-transparent">
             Hallo, ich bin Labi
@@ -112,7 +107,7 @@ const Hero = () => {
 
         <div className="mb-8">
           <p className="text-2xl md:text-3xl font-bold text-white mb-2">
-            Ich entwickle für Sie:
+            & ich entwickle für Sie:
           </p>
           <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent min-h-[3rem] flex items-center justify-center">
             {displayedText}
