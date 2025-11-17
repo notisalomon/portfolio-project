@@ -99,22 +99,22 @@ const Hero = () => {
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-700"></div>
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 opacity-20 hover:opacity-30 transition-opacity duration-300 animate-float">
+        <div className="absolute top-10 left-10 opacity-15 hover:opacity-25 transition-opacity duration-300 animate-float">
           <Code2 size={48} className="text-cyan-400" strokeWidth={1.5} />
         </div>
-        <div className="absolute top-1/3 right-1/4 opacity-15 hover:opacity-25 transition-opacity duration-300 animate-float-delayed">
+        <div className="absolute top-20 right-20 opacity-12 hover:opacity-22 transition-opacity duration-300 animate-float-delayed">
           <Blocks size={56} className="text-blue-400" strokeWidth={1.5} />
         </div>
-        <div className="absolute bottom-1/3 left-1/3 opacity-20 hover:opacity-30 transition-opacity duration-300 animate-float-delayed-2">
+        <div className="absolute bottom-32 left-20 opacity-15 hover:opacity-25 transition-opacity duration-300 animate-float-delayed-2">
           <Cpu size={52} className="text-cyan-400" strokeWidth={1.5} />
         </div>
-        <div className="absolute top-2/3 right-1/3 opacity-15 hover:opacity-25 transition-opacity duration-300 animate-float">
+        <div className="absolute bottom-40 right-32 opacity-12 hover:opacity-22 transition-opacity duration-300 animate-float">
           <Terminal size={48} className="text-blue-400" strokeWidth={1.5} />
         </div>
-        <div className="absolute bottom-1/4 right-1/4 opacity-20 hover:opacity-30 transition-opacity duration-300 animate-float-delayed">
+        <div className="absolute top-1/3 right-10 opacity-15 hover:opacity-25 transition-opacity duration-300 animate-float-delayed">
           <Globe size={52} className="text-cyan-400" strokeWidth={1.5} />
         </div>
-        <div className="absolute top-1/2 left-1/5 opacity-15 hover:opacity-25 transition-opacity duration-300 animate-float-delayed-2">
+        <div className="absolute bottom-20 left-1/3 opacity-12 hover:opacity-22 transition-opacity duration-300 animate-float-delayed-2">
           <Wrench size={48} className="text-blue-400" strokeWidth={1.5} />
         </div>
       </div>

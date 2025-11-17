@@ -52,4 +52,16 @@
       transform: translateY(-20px);
     }
   }
+
+  .opacity-12 {
+    opacity: 0.12;
+  }
+
+  .opacity-22 {
+    opacity: 0.22;
+  }
+
+  .hover\:opacity-22:hover {
+    opacity: 0.22;
+  }
 }
