@@ -53,12 +53,24 @@
     }
   }
 
+  .opacity-10 {
+    opacity: 0.1;
+  }
+
   .opacity-12 {
     opacity: 0.12;
   }
 
+  .opacity-18 {
+    opacity: 0.18;
+  }
+
   .opacity-22 {
     opacity: 0.22;
+  }
+
+  .hover\:opacity-18:hover {
+    opacity: 0.18;
   }
 
   .hover\:opacity-22:hover {

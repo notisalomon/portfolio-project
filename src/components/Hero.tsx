@@ -1,4 +1,4 @@
-import { ChevronDown, Code2, Blocks, Cpu, Terminal, Globe, Wrench } from 'lucide-react';
+import { ChevronDown, Code2, Blocks, Cpu, Terminal, Globe, Wrench, Laptop } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
 const Hero = () => {
@@ -116,6 +116,9 @@ const Hero = () => {
         </div>
         <div className="absolute bottom-20 left-1/3 opacity-12 hover:opacity-22 transition-opacity duration-300 animate-float-delayed-2">
           <Wrench size={48} className="text-blue-400" strokeWidth={1.5} />
+        </div>
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 opacity-10 hover:opacity-18 transition-opacity duration-300 animate-float-delayed">
+          <Laptop size={120} className="text-cyan-400" strokeWidth={1} />
         </div>
       </div>
 
