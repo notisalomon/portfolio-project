@@ -1,4 +1,4 @@
-import { ChevronDown, Sparkles } from 'lucide-react';
+import { ChevronDown, Code2, Blocks, Cpu, Terminal, Globe, Wrench } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
 const Hero = () => {
@@ -97,6 +97,27 @@ const Hero = () => {
 
       <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-700"></div>
+
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 opacity-20 hover:opacity-30 transition-opacity duration-300 animate-float">
+          <Code2 size={48} className="text-cyan-400" strokeWidth={1.5} />
+        </div>
+        <div className="absolute top-1/3 right-1/4 opacity-15 hover:opacity-25 transition-opacity duration-300 animate-float-delayed">
+          <Blocks size={56} className="text-blue-400" strokeWidth={1.5} />
+        </div>
+        <div className="absolute bottom-1/3 left-1/3 opacity-20 hover:opacity-30 transition-opacity duration-300 animate-float-delayed-2">
+          <Cpu size={52} className="text-cyan-400" strokeWidth={1.5} />
+        </div>
+        <div className="absolute top-2/3 right-1/3 opacity-15 hover:opacity-25 transition-opacity duration-300 animate-float">
+          <Terminal size={48} className="text-blue-400" strokeWidth={1.5} />
+        </div>
+        <div className="absolute bottom-1/4 right-1/4 opacity-20 hover:opacity-30 transition-opacity duration-300 animate-float-delayed">
+          <Globe size={52} className="text-cyan-400" strokeWidth={1.5} />
+        </div>
+        <div className="absolute top-1/2 left-1/5 opacity-15 hover:opacity-25 transition-opacity duration-300 animate-float-delayed-2">
+          <Wrench size={48} className="text-blue-400" strokeWidth={1.5} />
+        </div>
+      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-5xl md:text-7xl font-bold mb-6">
